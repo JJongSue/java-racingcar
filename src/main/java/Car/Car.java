@@ -1,14 +1,18 @@
 package Car;
 
-import java.util.Random;
-
 public class Car {
     private static final int MIN_MOVE_NUMBER = 4;
 
     private int moveCount;
+    private String carName;
 
-    public Car() {
+    public String getCarName() {
+        return carName;
+    }
+
+    public Car(String carName) {
         moveCount = 0;
+        this.carName = carName;
     }
 
     public int getMoveCount() {
@@ -16,12 +20,8 @@ public class Car {
     }
 
     public void move(int inputNumber) {
-        if (isMove(inputNumber)) {
+        if (inputNumber >= MIN_MOVE_NUMBER) {
             moveCount++;
         }
-    }
-
-    private boolean isMove(int randomNumber) {
-        return randomNumber >= MIN_MOVE_NUMBER;
     }
 }
