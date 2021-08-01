@@ -1,11 +1,10 @@
 package Car;
 
-
 import java.util.*;
 
 public class RacingCar {
-    static final int RANDOM_NUMBER_BOUND = 10;
-    static final Random random = new Random();
+    private static final int RANDOM_NUMBER_BOUND = 10;
+    private static final Random random = new Random();
 
     private List<Car> cars;
 
