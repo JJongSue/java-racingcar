@@ -13,14 +13,13 @@ public class OutputView {
     }
 
     public void printResult(List<Car> cars) {
-        for (Car car :
-                cars) {
+        for (Car car : cars) {
             drawMovements(car.getMoveCount());
         }
         System.out.println();
     }
 
-    private void drawMovements(int moveCount){
+    private void drawMovements(int moveCount) {
         for (int i = 0; i <= moveCount; i++) {
             System.out.print(MOVEMENT);
         }
