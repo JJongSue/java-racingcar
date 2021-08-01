@@ -20,5 +20,35 @@ public class InputView {
         }
         return returnNumber;
     }
+    
+    public String[] getCarNames(String message){
+        System.out.println(message);
+        String carNames = "";
+        String[] returnNames = null;
+        try {
+            carNames = scanner.nextLine();
+            validateStringVoid(carNames);
+            returnNames = spliteCarNames(carNames);
+        } catch (Exception e) {
+            throw new IllegalArgumentException("올바른 값을 입력해주세요.");
+        }
+        return returnNames;
+    }
+
+    private void validateStringVoid(String s) {
+        if (s == null || s.trim().isEmpty()) {
+            throw new IllegalArgumentException("빈값을 입력받았습니다.");
+        }
+    }
+
+    private String[] spliteCarNames(String carNames){
+        String[] stplitedCarName = carNames.split(",");
+        for (int i = 0; i < stplitedCarName.length; i++) {
+            String carName = stplitedCarName[i].trim();
+            validateStringVoid(carName);
+            stplitedCarName[i] = carName;
+        }
+        return stplitedCarName;
+    }
 
 }
