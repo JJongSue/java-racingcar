@@ -6,6 +6,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
+
 import static org.assertj.core.api.Assertions.*;
 
 class CarTest {
@@ -13,7 +14,8 @@ class CarTest {
 
     @BeforeEach
     void setUp() {
-        car = new Car("testCar");
+
+        car = new Car("test");
     }
 
     @Test
@@ -43,4 +45,11 @@ class CarTest {
         assertThat(car.getCarName()).isEqualTo(carName);
     }
 
+    @ParameterizedTest
+    @ValueSource(strings = {"goodCar", "goodCa"})
+    void 자동차이름테스트_예외발생(String carName) {
+        assertThatThrownBy(() -> new Car(carName))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("5자를 초과할 수 없습니다.");
+    }
 }
